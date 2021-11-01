@@ -1,0 +1,54 @@
+{
+  "name": "supersave-api-client",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "author": "daangemist",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/daangemist/supersave-api-client"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint --ext=.ts ./src",
+    "lint:fix": "eslint --ext=.ts --fix ./src",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
+  },
+  "types": "./build/index.d.ts",
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "unicorn"
+    ],
+    "rules": {
+      "unicorn/filename-case": "error",
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        {
+          "ts-expect-error": "allow-with-description",
+          "ts-ignore": "allow-with-description",
+          "ts-nocheck": "allow-with-description",
+          "ts-check": "allow-with-description"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/pluralize": "^0.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-plugin-unicorn": "^37.0.1",
+    "prettier": "^2.4.1",
+    "supersave": "^0.10.3",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "pluralize": "^8.0.0"
+  }
+}

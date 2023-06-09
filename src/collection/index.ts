@@ -9,9 +9,9 @@ export default function <T extends BaseEntity>(
   return {
     get: (filterSort: Record<string, string> = {}) =>
       methods.get<T>(client, collection, filterSort),
-    getById: (id: string) => methods.getById(client, collection, id),
+    getById: (id: string) => methods.getById<T>(client, collection, id),
     remove: (id: string) => methods.remove(client, collection, id),
-    create: (item: Omit<T, 'id'>) => methods.create(client, collection, item),
-    update: (item: Partial<T>) => methods.update(client, collection, item),
+    create: (item: Omit<T, 'id'>) => methods.create<T>(client, collection, item),
+    update: (item: Partial<T>) => methods.update<T>(client, collection, item),
   };
 }

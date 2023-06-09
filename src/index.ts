@@ -29,6 +29,7 @@ export default function (prefix: string) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ) => AxiosResponse<any, any> | Promise<AxiosResponse<any, any>>)
     | undefined;
+
   return {
     collection: <T extends BaseEntity>(collection: Collection) =>
       collectionWrapper<T>(client, collection),
@@ -53,5 +54,6 @@ export default function (prefix: string) {
     ) => methods.create<T>(client, collection, item),
     update: <T extends BaseEntity>(collection: Collection, item: Partial<T>) =>
       methods.update(client, collection, item),
+    getClient: () => client,
   };
 }
